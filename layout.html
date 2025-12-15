@@ -86,72 +86,73 @@
       flex: 1;
     }
 
-    /* NAVBAR SUBSTITUÍDA PELO TEU ESTILO */
-    .menu {
+    /* NAVBAR LATERAL */
+    .menu-lateral {
       width: 240px;
       background-color: var(--cor-cinzento);
+      color: var(--cor-secundaria);
+      border-right: 1px solid #ddd;
       padding-top: 20px;
     }
 
-    .menu ul {
+    .menu-lateral ul {
       list-style: none;
-      margin: 0;
       padding: 0;
+      margin: 0;
     }
 
-    .menu li {
+    .menu-lateral li {
       position: relative;
     }
 
-    .menu > ul > li > a {
+    .menu-lateral > ul > li {
+      padding: 10px 16px;
+      font-size: 15px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 20px;
-      text-decoration: none;
-      color: var(--cor-secundaria);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      transition: background 0.3s;
+      cursor: pointer;
+      transition: background-color 0.2s;
     }
 
-    .menu > ul > li:hover > a {
-      background-color: var(--cor-terciaria);
+    .menu-lateral > ul > li:hover {
+      background-color: var(--cor-laranja);
+      color: white;
     }
 
-    .menu li ul {
+    .menu-lateral li ul {
       display: none;
       position: absolute;
       top: 0;
       left: 100%;
       background-color: var(--cor-secundaria);
       min-width: 220px;
+      border-left: 1px solid #ddd;
       box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
       z-index: 10;
     }
 
-    .menu li:hover ul {
+    .menu-lateral li:hover ul {
       display: block;
     }
 
-    .menu li ul li a {
-      display: block;
+    .menu-lateral li ul li {
       padding: 10px 15px;
-      text-decoration: none;
+      font-size: 14px;
       color: var(--cor-terciaria);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      white-space: nowrap;
+      transition: background-color 0.2s;
     }
 
-    .menu li ul li a:hover {
+    .menu-lateral li ul li:hover {
       background-color: var(--cor-primaria);
       color: var(--cor-secundaria);
     }
 
     .arrow {
-      font-size: 14px;
-      color: var(--cor-secundaria);
+      font-size: 12px;
     }
 
-    /* CONTENT */
     .content {
       flex: 1;
       padding: 1.5rem;
@@ -212,7 +213,6 @@
 
     .warning-icon {
       font-size: 1.1rem;
-      color: var(--cor-laranja);
     }
 
     table {
@@ -255,6 +255,43 @@
       text-decoration: underline;
       color: var(--cor-terciaria);
     }
+
+    /* ALERTAS */
+    .alerta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+
+    .alerta svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .alerta-azul {
+      background: var(--cor-primaria);
+      color: var(--cor-secundaria);
+    }
+
+    .alerta-verde {
+      background: var(--cor-verde);
+      color: var(--cor-secundaria);
+    }
+
+    .alerta-amarelo {
+      background: var(--cor-cinzento);
+      color: var(--cor-secundaria);
+    }
+
+    .alerta-vermelho {
+      background: var(--cor-vermelho);
+      color: var(--cor-secundaria);
+    }
   </style>
 </head>
 <body>
@@ -275,105 +312,84 @@
   <!-- Main Container -->
   <div class="container">
     <!-- NAVBAR LATERAL -->
-    <nav class="menu">
+    <nav class="menu-lateral">
       <ul>
-        <li><a href="#">Início <span class="arrow">º</span></a></li>
-
-        <li>
-          <a href="#">Geral <span class="arrow">º</span></a>
+        <li>Início <span class="arrow"></span></li>
+        <li>Geral <span class="arrow">▶</span>
           <ul>
-            <li><a href="#">Processos</a></li>
-            <li><a href="#">Dados Pessoais</a></li>
-            <li><a href="#">Privacidade</a></li>
-            <li><a href="#">Ajuda</a></li>
+            <li>Processos</li>
+            <li>Dados Pessoais</li>
+            <li>Privacidade</li>
+            <li>Ajuda</li>
           </ul>
         </li>
-
-        <li>
-          <a href="#">Serviços <span class="arrow">º</span></a>
+        <li>Serviços <span class="arrow">▶</span>
           <ul>
-            <li><a href="#">Pagamentos</a></li>
-            <li><a href="#">Matrículas/Inscrições</a></li>
-            <li><a href="#">Inscrição em Turmas</a></li>
-            <li><a href="#">Requerimentos</a></li>
-            <li><a href="#">Cartão Universitário</a></li>
-            <li><a href="#">SASUMa–Bolsas</a></li>
+            <li>Pagamentos</li>
+            <li>Matrículas/Inscrições</li>
+            <li>Inscrição em Turmas</li>
+            <li>Requerimentos</li>
+            <li>Cartão Universitário</li>
+            <li>SASUMa–Bolsas</li>
           </ul>
         </li>
-
-        <li>
-          <a href="#">Concursos <span class="arrow">º</span></a>
+        <li>Concursos <span class="arrow">▶</span>
           <ul>
-            <li><a href="#">Candidaturas</a></li>
+            <li>Candidaturas</li>
           </ul>
         </li>
-
-        <li>
-          <a href="#">Avaliação <span class="arrow">º</span></a>
+        <li>Avaliação <span class="arrow">▶</span>
           <ul>
-            <li><a href="#">Pautas</a></li>
-            <li><a href="#">Reclamação de Nota</a></li>
-            <li><a href="#">Inquéritos</a></li>
-            <li><a href="#">Resultados de Inquéritos</a></li>
-            <li><a href="#">Inquérito RAIDES</a></li>
+            <li>Pautas</li>
+            <li>Reclamação de Nota</li>
+            <li>Inquéritos</li>
+            <li>Resultados de Inquéritos</li>
+            <li>Inquérito RAIDES</li>
           </ul>
         </li>
-
-        <li>
-          <a href="#">Creditações <span class="arrow">º</span></a>
+        <li>Creditações <span class="arrow">▶</span>
           <ul>
-            <li><a href="#">Lista de Processos</a></li>
-            <li><a href="#">Novo Processo</a></li>
+            <li>Lista de Processos</li>
+            <li>Novo Processo</li>
           </ul>
         </li>
-
-        <li>
-          <a href="#">Documentos <span class="arrow">º</span></a>
+        <li>Documentos <span class="arrow">▶</span>
           <ul>
-            <li><a href="#">Académicos</a></li>
-            <li><a href="#">Declarações</a></li>
+            <li>Académicos</li>
+            <li>Declarações</li>
           </ul>
         </li>
-
-        <li>
-          <a href="#">Aula <span class="arrow">º</span></a>
+        <li>Aula <span class="arrow">▶</span>
           <ul>
-            <li><a href="#">Calendários</a></li>
-            <li><a href="#">Sumário</a></li>
+            <li>Calendários</li>
+            <li>Sumário</li>
           </ul>
         </li>
-
-        <li>
-          <a href="#">Disciplina <span class="arrow">º</span></a>
+        <li>Disciplina <span class="arrow">▶</span>
           <ul>
-            <li><a href="#">Fichas</a></li>
-            <li><a href="#">Programas</a></li>
-            <li><a href="#">Ficheiros</a></li>
+            <li>Fichas</li>
+            <li>Programas</li>
+            <li>Ficheiros</li>
           </ul>
         </li>
-
-        <li>
-          <a href="#">Curso <span class="arrow">º</span></a>
+        <li>Curso <span class="arrow">▶</span>
           <ul>
-            <li><a href="#">Ficha Curricular</a></li>
-            <li><a href="#">Horários</a></li>
-            <li><a href="#">Histórico de Matrículas/Inscrições</a></li>
-            <li><a href="#">Histórico de Disciplinas Aprovadas</a></li>
-            <li><a href="#">Transição para Bolonha</a></li>
-            <li><a href="#">Plano de Conclusão</a></li>
-            <li><a href="#">Quadro de Prescrição</a></li>
-            <li><a href="#">Atividades Académicas do Aluno</a></li>
+            <li>Ficha Curricular</li>
+            <li>Horários</li>
+            <li>Histórico de Matrículas/Inscrições</li>
+            <li>Histórico de Disciplinas Aprovadas</li>
+            <li>Transição para Bolonha</li>
+            <li>Plano de Conclusão</li>
+            <li>Quadro de Prescrição</li>
+            <li>Atividades Académicas do Aluno</li>
           </ul>
         </li>
-
-        <li>
-          <a href="#">Instituição <span class="arrow">º</span></a>
+        <li>Instituição <span class="arrow">▶</span>
           <ul>
-            <li><a href="#">Estrutura Orgânica</a></li>
+            <li>Estrutura Orgânica</li>
           </ul>
         </li>
-
-        <li><a href="#">Eleições <span class="arrow">º</span></a></li>
+        <li>Eleições <span class="arrow"></span></li>
       </ul>
     </nav>
 
@@ -388,7 +404,6 @@
 
       <!-- Main Grid -->
       <div class="main-grid">
-        <!-- Últimas Pautas -->
         <div class="card">
           <div class="card-title">
             <span class="warning-icon">⚠</span>Últimas Pautas
@@ -398,7 +413,6 @@
           </div>
         </div>
 
-        <!-- Pagamentos por Liquidar -->
         <div class="card">
           <div class="card-title">
             <span class="warning-icon">⬆</span>Pagamentos por Liquidar
@@ -416,48 +430,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>2025-11-30</td>
-                <td>3ª Prestação de Propinas de CET's</td>
-                <td>213392503</td>
-                <td>69.70 EUR</td>
-              </tr>
-              <tr>
-                <td>2025-12-31</td>
-                <td>4ª Prestação de Propinas de CET's</td>
-                <td>213392504</td>
-                <td>69.70 EUR</td>
-              </tr>
-              <tr>
-                <td>2026-01-31</td>
-                <td>5ª Prestação de Propinas de CET's</td>
-                <td>213392505</td>
-                <td>69.70 EUR</td>
-              </tr>
-              <tr>
-                <td>2026-02-28</td>
-                <td>6ª Prestação de Propinas de CET's</td>
-                <td>213392506</td>
-                <td>69.70 EUR</td>
-              </tr>
-              <tr>
-                <td>2026-03-31</td>
-                <td>7ª Prestação de Propinas de CET's</td>
-                <td>213392507</td>
-                <td>69.70 EUR</td>
-              </tr>
-              <tr>
-                <td>2026-04-30</td>
-                <td>8ª Prestação de Propinas de CET's</td>
-                <td>213392508</td>
-                <td>69.70 EUR</td>
-              </tr>
-              <tr>
-                <td>2026-05-31</td>
-                <td>9ª Prestação de Propinas de CET's</td>
-                <td>213392509</td>
-                <td>69.70 EUR</td>
-              </tr>
+              <tr><td>2025-11-30</td><td>3ª Prestação de Propinas de CET's</td><td>213392503</td><td>69.70 EUR</td></tr>
+              <tr><td>2025-12-31</td><td>4ª Prestação de Propinas de CET's</td><td>213392504</td><td>69.70 EUR</td></tr>
+              <tr><td>2026-01-31</td><td>5ª Prestação de Propinas de CET's</td><td>213392505</td><td>69.70 EUR</td></tr>
+              <tr><td>2026-02-28</td><td>6ª Prestação de Propinas de CET's</td><td>213392506</td><td>69.70 EUR</td></tr>
+              <tr><td>2026-03-31</td><td>7ª Prestação de Propinas de CET's</td><td>213392507</td><td>69.70 EUR</td></tr>
+              <tr><td>2026-04-30</td><td>8ª Prestação de Propinas de CET's</td><td>213392508</td><td>69.70 EUR</td></tr>
+              <tr><td>2026-05-31</td><td>9ª Prestação de Propinas de CET's</td><td>213392509</td><td>69.70 EUR</td></tr>
             </tbody>
           </table>
         </div>
@@ -465,7 +444,6 @@
 
       <!-- Bottom Grid -->
       <div class="bottom-grid">
-        <!-- Lista de Processos -->
         <div class="card">
           <div class="card-title">
             <span class="warning-icon">⚠</span>Lista de Processos do Aluno - Unidade de Assuntos Académicos
@@ -475,27 +453,42 @@
           </div>
         </div>
 
-        <!-- Avisos Académicos -->
         <div class="card">
           <div class="card-title">
             <span class="warning-icon">⚠</span>Avisos - Unidade de Assuntos Académicos
           </div>
           <div class="card-content">
-            <ul style="padding-left: 1rem; list-style: disc; color: #333; font-size: 0.85rem;">
-              <li>
-                <a href="#">Aviso 131/UAA/25 - Lista definitiva de colocação nos Concursos Especiais em Gestão (2025/26)</a>
-              </li>
-              <li>
-                <a href="#">Aviso 129/UAA/25 - Candidaturas ao Curso de Profissionalização em Serviço (2025/2026)</a>
-              </li>
-              <li>
-                <a href="#">Aviso 128/UAA/25 - Candidaturas à Microcredencial Engenharia de Prompt</a>
-              </li>
-            </ul>
+            <!-- Alertas -->
+            <div class="alerta alerta-azul">
+              <svg><use href="#icon-info"></use></svg>
+              Aviso 131/UAA/25 - Lista definitiva de colocação nos Concursos Especiais em Gestão (2025/26)
+            </div>
+
+            <div class="alerta alerta-verde">
+              <svg><use href="#icon-info"></use></svg>
+              Aviso 129/UAA/25 - Candidaturas ao Curso de Profissionalização em Serviço (2025/2026)
+            </div>
+
+            <div class="alerta alerta-amarelo">
+              <svg><use href="#icon-info"></use></svg>
+              Aviso 128/UAA/25 - Candidaturas à Microcredencial Engenharia de Prompt
+            </div>
+
+            <div class="alerta alerta-vermelho">
+              <svg><use href="#icon-info"></use></svg>
+              Aviso Importante - Prazo de matrícula a encerrar
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Ícones SVG escondidos -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="icon-info" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm.93-8.588-1 4.3c-.07.3.03.5.3.5.2 0 .5-.07.7-.24l-.09.4c-.29.34-.92.6-1.46.6-.7 0-1-.4-.8-1.3l.74-3.17c.06-.3 0-.4-.29-.47l-.45-.08.08-.38 2.3-.3zM8 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+    </symbol>
+  </svg>
 </body>
 </html>
